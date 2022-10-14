@@ -1,6 +1,6 @@
 ### `username.py`
 
-This program takes a username, then uses that to pull the twitter user's description, id, and name. It then puts this information in a json format along with the username.
+This program takes a username, then uses that to pull the twitter user's description, id, and name. It then puts this information in a json format along with the username. For testing purposes I was looking at the twitter user @keaneofficial
 ```
 $ python Phase1a/username.py
 the request url is https://api.twitter.com/2/users/by?usernames=keaneofficial&user.fields=description
@@ -22,7 +22,7 @@ the response status code is: 200
 
 ### `hashtags.py`
 
-This program takes a username, the date/time range being searched for(only in the past 7 days), and the number of results that will be returned. It then uses that to pull a text of the tweet, the tweet's id number, and the the tweet-edit  history id (for the number of tweets specified in the paramenters) and puts it in a json format.
+This program takes a username, the date/time range being searched for(only in the past 7 days), and the number of results that will be returned (for this example I chose to go with 15 tweets, used the hashtag #halloween, and chose a time range of 2022-10-10T00:00:00Z and 2022-10-14T00:00:00Z). It then uses that to pull a text of the tweet, the tweet's id number, and the the tweet-edit  history id (for the number of tweets specified in the paramenters) and puts it in a json format.
 ```
 
 $ python Phase1a/hashtags.py
@@ -152,7 +152,7 @@ https://t.co/I26pUam5qt"
 
 ### `by_date.py`
 
-This program takes a user's name, and returns the 10 most recent tweets in order from newest to oldest from the account from the past 7 days. The information pulled is the author id, the tweet id, tweet-edit history id, the text of the tweet, and the tweet's id number, and puts it in a json format.
+This program takes a user's name, and returns the 10 most recent tweets in order from newest to oldest from the account from the past 7 days (For this example I look at tweets by @NASA or with the hashtag #NASA). The information pulled is the author id, the tweet id, tweet-edit history id, the text of the tweet, and the tweet's id number, and puts it in a json format.
 ```
 $ python Phase1a/by_date.py
 200
@@ -251,11 +251,25 @@ undock. https://t.co/vSN9zirBEW"
 
 
 ---
+As discussed in in the quickstart overview of Botometer (https://github.com/IUNetSci/botometer-python#botometer-v4),
 
+> **Meanings of the elements in the response:**
+> * **user**: Twitter user object (from the user) plus the language inferred from majority of tweets
+> * **raw scores**: bot score in the [0,1] range, both using English (all features) and Universal (language-independent) features; in each case we have the overall score and the sub-scores for each bot class (see below for subclass names and definitions)
+> * **display scores**: same as raw scores, but in the [0,5] range
+> * **cap**: conditional probability that accounts with a score **equal to or greater than this** are automated; based on inferred language
+> 
+> **Meanings of the bot type scores:**
+> * `fake_follower`: bots purchased to increase follower counts 
+> * `self_declared`: bots from botwiki.org
+> * `astroturf`: manually labeled political bots and accounts involved in follow trains that systematically delete content
+> * `spammer`: accounts labeled as spambots from several datasets
+> * `financial`: bots that post using cashtags
+> * `other`: miscellaneous other bots obtained from manual annotation, user feedback, etc.
 
 ### `bot_by_id.py`
 
-This program takes the id number of a twitter account, and calls the botometer to determine if the account is a bot or not by analyzing the twitter activity of the account. This information is then put into a json format.
+This program takes the id number of a twitter account, and calls the botometer to determine if the account is a bot or not by analyzing the twitter activity of the account (for this example I used the id 18863720 that corresponds to @keaneofficial). This information is then put into a json format. The results show that it is unlikely that this account is a bot.
 ```
 $ python Phase1a/bot_by_id.py
 {
@@ -319,7 +333,7 @@ $ python Phase1a/bot_by_id.py
 
 ### `bot_or_not.py`
 
-This program takes the username of a twitter account, and calls the botometer to determine if the account is a bot or not by analyzing the twitter activity of the account. This information is then put into a json format.
+This program takes the username of a twitter account, and calls the botometer to determine if the account is a bot or not by analyzing the twitter activity of the account (for this example I look at the @lordiofficial account). This information is then put into a json format. The results show that it is unlikely that this account is a bot.
 ```
 $ python Phase1a/bot_or_not.py
 {
@@ -381,7 +395,7 @@ $ python Phase1a/bot_or_not.py
 ---
 ### `bots_or_nots.py`
 
-This program takes the usernames of multiple twitter accounts, and calls the botometer to determine if the accounts are bots or not by analyzing their twitter activity. This information is then put into a json format.
+This program takes the usernames of multiple twitter accounts, and calls the botometer to determine if the accounts are bots or not by analyzing their twitter activity. This information is then put into a json format. For this example I looked at the  following accounts: "@NASAHubble", "@BU_Tweets", "@MBTA", "@ENGEC601". As @ENGEC601` has no tweets, the API returns a `NoTimelineError' (see below).
 ```
 $ python Phase1a/bots_or_nots.py                                                                               
 @NASAHubble {
