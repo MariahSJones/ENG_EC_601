@@ -1,3 +1,5 @@
+## Project 2
+
 Welcome to the main readme for project 2!
 
 For more information on this project please visit the wiki: https://github.com/MariahSJones/ENG_EC_601/wiki
@@ -8,7 +10,7 @@ conda activate phase1
 pip install -r requirements.txt
 ```
 
-For this code to work, you require a number of environment variables. In the `~/.bashrc` add the following:
+For this code to work, you will need a number of environment variables. In the `~/.bashrc` add the following:
 
 ```
 export 'GOOGLE_APPLICATION_CREDENTIALS'='<path_to_google_application_json>'
