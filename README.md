@@ -1,3 +1,7 @@
+Welcome to the main readme for project 2!
+
+For more information on this project please visit the wiki: https://github.com/MariahSJones/ENG_EC_601/wiki
+
 ```
 conda create -n phase1 python==3.8
 conda activate phase1
