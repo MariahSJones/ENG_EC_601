@@ -37,12 +37,13 @@ pip install -r requirements.txt
 
 
 #### Two main ways to use the API
+
 ```
-##### Use the `hta.analyze_tweets` code to analyze each tweet individually
+# Use the hta.analyze_tweets code to analyze each tweet individually
 sentiment_df = hta.analyze_tweets()
 print(sentiment_df)
 
-##### Use `hta.calculate_total_sentiment` to calculate total sentiment by combining tweets into a single document
+# Use hta.calculate_total_sentiment to calculate total sentiment by combining tweets into a single document
 total_sentiment = hta.calculate_total_sentiment()
 ##### https://cloud.google.com/natural-language/docs/basics#interpreting_sentiment_analysis_values
 print(total_sentiment)
