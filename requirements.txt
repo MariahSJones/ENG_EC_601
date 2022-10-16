@@ -1,3 +1,4 @@
 requests
 botometer
 google-cloud-language
+pandas
