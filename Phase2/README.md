@@ -1,6 +1,6 @@
 ### `analyzer_nlp.py`
 
-This program searches through tweets for up to the past 7 days for a specified number of results about a particular hashtag, and returns sentiment scores for them. For this example I chose #Salem, a date/time range of 2022-10-10T00:00:00Z to 2022-10-16T00:00:00Z, and a maximum of 10 results. When the program is run it firsts checks to see if the file exists and is readable, and alerts the user if it is or not. In this case it was so it says "The file exists, and is readable!" before running through the program.
+This program searches through tweets for up to the past 7 days for a specified number of results about a particular hashtag, and returns sentiment scores for them. For this example I chose #Salem, a date/time range of 2022-10-10T00:00:00Z to 2022-10-16T00:00:00Z, and a maximum of 10 results. When the program is run it firsts checks to see if the file exists and is readable, and alerts the user if it is or not. In this case it was, so it says "The file exists, and is readable!" before running through the program.
 
 The analyzer uses some of the APIs in phase 1 of the project, most notably the hashtags.py for the ability to search by hashtag, and the movie_nlp for analyzing the sentiment of the tweets.
 
