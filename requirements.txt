@@ -2,3 +2,4 @@ requests
 botometer
 google-cloud-language
 pandas
+pre-commit

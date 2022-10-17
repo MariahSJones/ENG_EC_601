@@ -17,7 +17,9 @@ class APIConnections:
     def __init__(
         self,
         twitter_bearer_token=os.environ.get("BEARER_TOKEN"),
-        google_application_credentials=os.environ.get("GOOGLE_APPLICATION_CREDENTIALS"),
+        google_application_credentials=os.environ.get(
+            "GOOGLE_APPLICATION_CREDENTIALS"
+        ),  # noqa: E501
         verbose=False,
     ) -> None:
 
@@ -186,10 +188,17 @@ class HashtagAnalyzer:
         if self.verbose:
             print(
                 "query parameters:",
-                json.dumps(query_params, indent=4, sort_keys=True,),
+                json.dumps(
+                    query_params,
+                    indent=4,
+                    sort_keys=True,
+                ),
             )
 
-        jsn_resp = self._connect_endpoint(self.search_url, query_params,)
+        jsn_resp = self._connect_endpoint(
+            self.search_url,
+            query_params,
+        )
 
         # check if tweets are returned
         if jsn_resp["meta"]["result_count"] == 0:
@@ -299,7 +308,8 @@ if __name__ == "__main__":
     hta_sentiment = hta.analyze_tweets()
     print(hta_sentiment)
 
-    # calculates the total sentiment by combining the tweet into a single document
+    # calculates the total sentiment by combining
+    # the tweet into a single document
     hta_total_sentiment = hta.calculate_total_sentiment()
     # https://cloud.google.com/natural-language/docs/basics#interpreting_sentiment_analysis_values # noqa: E501
     print(hta_total_sentiment)
