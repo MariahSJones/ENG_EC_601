@@ -22,7 +22,7 @@ the response status code is: 200
 
 ### `hashtags.py`
 
-This program takes a username, the date/time range being searched for(only in the past 7 days), and the number of results that will be returned (for this example I chose to go with 15 tweets, used the hashtag #halloween, and chose a time range of 2022-10-10T00:00:00Z and 2022-10-14T00:00:00Z). It then uses that to pull a text of the tweet, the tweet's id number, and the the tweet-edit  history id (for the number of tweets specified in the paramenters) and puts it in a json format.
+This program takes a username, the date/time range being searched for (only in the past 7 days), and the number of results that will be returned (for this example I chose to go with 15 tweets, used the hashtag #halloween, and chose a time range of 2022-10-10T00:00:00Z and 2022-10-14T00:00:00Z). It then uses that to pull a text of the tweet, the tweet's id number, and the the tweet-edit  history id (for the number of tweets specified in the paramenters) and puts it in a json format.
 ```
 
 $ python Phase1a/hashtags.py
