@@ -313,4 +313,3 @@ if __name__ == "__main__":
     hta_total_sentiment = hta.calculate_total_sentiment()
     # https://cloud.google.com/natural-language/docs/basics#interpreting_sentiment_analysis_values # noqa: E501
     print(hta_total_sentiment)
-    
