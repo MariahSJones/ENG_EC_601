@@ -11,7 +11,6 @@ from utils.utils import (
     masked_dict_vals,
 )
 
-
 class APIConnections:
 
     # these are the keys that are stored as environment variables
