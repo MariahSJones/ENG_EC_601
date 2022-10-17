@@ -6,15 +6,15 @@ The analyzer uses some of the APIs in phase 1 of the project, most notably the h
 
 ```
 $ python Phase2/analyzer.py
-The file exists, and is readable! 
+The file exists, and is readable!
 
 query parameters: {
-    "end_time": "2022-10-16T00:00:00Z", 
+    "end_time": "2022-10-16T00:00:00Z",
     "max_results": "10",
     "query": "#Salem",
     "start_time": "2022-10-15T00:00:00Z"
 }
-self.tweets_data: 
+self.tweets_data:
 
  {
     "data": [
@@ -58,7 +58,7 @@ self.tweets_data:
                 "1581431667574525954"
             ],
             "id": "1581431667574525954",
-            "text": "Anyone need grave yard dirt ? #Salem #salemma #cemetary #graveyard 
+            "text": "Anyone need grave yard dirt ? #Salem #salemma #cemetary #graveyard
 #spells #spellwork #witch #malewitch https://t.co/Xfj5UA5O8Y"
         },
         {
@@ -102,13 +102,13 @@ self.tweets_data:
 
 self.tweets_df:
 
-   edit_history_tweet_ids  ...                                               text       
-0  [1581433510912724993]  ...  Available Now: Episode 0, Salem - Ballet Des M...        
-1  [1581433060943286272]  ...  I would be in #Salem while the town is trendin...        
-2  [1581432273827557377]  ...  Road bikes to Salem, got art. Road home in the...        
-3  [1581431667574525954]  ...  Anyone need grave yard dirt ? #Salem #salemma ...        
-4  [1581429703722008576]  ...  I do miss living in #Salem during October.  \n...        
-5  [1581425544784027648]  ...  #NuevaFotoDePerfil #witch #Halloween #bruja #s...        
+   edit_history_tweet_ids  ...                                               text
+0  [1581433510912724993]  ...  Available Now: Episode 0, Salem - Ballet Des M...
+1  [1581433060943286272]  ...  I would be in #Salem while the town is trendin...
+2  [1581432273827557377]  ...  Road bikes to Salem, got art. Road home in the...
+3  [1581431667574525954]  ...  Anyone need grave yard dirt ? #Salem #salemma ...
+4  [1581429703722008576]  ...  I do miss living in #Salem during October.  \n...
+5  [1581425544784027648]  ...  #NuevaFotoDePerfil #witch #Halloween #bruja #s...
 
 [6 rows x 3 columns]
  -------
@@ -138,13 +138,13 @@ self.tweets_df:
                 Sentiment for the text 5:
                 0.0, 0.0
 
-  edit_history_tweet_ids                   id  ... sentiment_score sentiment_magnitude  
-0  [1581433510912724993]  1581433510912724993  ...             0.3                 1.1  
-1  [1581433060943286272]  1581433060943286272  ...             0.0                 0.0  
-2  [1581432273827557377]  1581432273827557377  ...             0.3                 0.9  
-3  [1581431667574525954]  1581431667574525954  ...            -0.1                 0.5  
-4  [1581429703722008576]  1581429703722008576  ...             0.0                 0.7  
-5  [1581425544784027648]  1581425544784027648  ...             0.0                 0.0  
+  edit_history_tweet_ids                   id  ... sentiment_score sentiment_magnitude
+0  [1581433510912724993]  1581433510912724993  ...             0.3                 1.1
+1  [1581433060943286272]  1581433060943286272  ...             0.0                 0.0
+2  [1581432273827557377]  1581432273827557377  ...             0.3                 0.9
+3  [1581431667574525954]  1581431667574525954  ...            -0.1                 0.5
+4  [1581429703722008576]  1581429703722008576  ...             0.0                 0.7
+5  [1581425544784027648]  1581425544784027648  ...             0.0                 0.0
 
 [6 rows x 5 columns]
 
@@ -170,9 +170,9 @@ All the tourist. All the people watching..#NuevaFotoDePerfil #witch #Halloween #
 (base)
 Francisco@DESKTOP-T0GSKI1 MINGW64 ~/EC601
 $ python Phase2/analyzer.py
-The file exists, and is readable! 
+The file exists, and is readable!
 
-The (masked) API keys: 
+The (masked) API keys:
 
 {
     "bearer_token": "****************************************************************************************************************"
@@ -188,7 +188,7 @@ query parameters: {
     "query": "#Salem",
     "start_time": "2022-10-15T00:00:00Z"
 }
-self.tweets_data: 
+self.tweets_data:
 
  {
     "data": [
@@ -232,7 +232,7 @@ self.tweets_data:
                 "1581431667574525954"
             ],
             "id": "1581431667574525954",
-            "text": "Anyone need grave yard dirt ? #Salem #salemma #cemetary #graveyard #spells #spellwork #witch #malewitch 
+            "text": "Anyone need grave yard dirt ? #Salem #salemma #cemetary #graveyard #spells #spellwork #witch #malewitch
 https://t.co/Xfj5UA5O8Y"
         },
         {
@@ -254,7 +254,7 @@ https://t.co/Xfj5UA5O8Y"
                 "1581425544784027648"
             ],
             "id": "1581425544784027648",
-            "text": "#NuevaFotoDePerfil #witch #Halloween #bruja #salem #trans #ilovehalloween https://t.co/af1VEAJNXA"      
+            "text": "#NuevaFotoDePerfil #witch #Halloween #bruja #salem #trans #ilovehalloween https://t.co/af1VEAJNXA"
         },
         {
             "edit_history_tweet_ids": [
