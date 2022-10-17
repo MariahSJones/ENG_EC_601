@@ -395,7 +395,7 @@ $ python Phase1a/bot_or_not.py
 ---
 ### `bots_or_nots.py`
 
-This program takes the usernames of multiple twitter accounts, and calls the botometer to determine if the accounts are bots or not by analyzing their twitter activity. This information is then put into a json format. For this example I looked at the  following accounts: "@NASAHubble", "@BU_Tweets", "@MBTA", "@ENGEC601". As @ENGEC601` has no tweets, the API returns a `NoTimelineError' (see below).
+This program takes the usernames of multiple twitter accounts, and calls the botometer to determine if the accounts are bots or not by analyzing their twitter activity. This information is then put into a json format. For this example I looked at the  following accounts: "@NASAHubble", "@BU_Tweets", "@MBTA", "@ENGEC601". As @ENGEC601 has no tweets, the API returns a `NoTimelineError' (see below).
 ```
 $ python Phase1a/bots_or_nots.py                                                                               
 @NASAHubble {
