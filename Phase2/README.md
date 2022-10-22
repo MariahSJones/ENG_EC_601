@@ -1,15 +1,137 @@
-## Phase 2 Documentation
+## Phase 2
+
+```
+conda create -n phase2 python==3.8
+conda activate phase2
+pip install -r requirements.txt
+
+# For flake8 & black
+pre-commit install
+pre-commit run --all
+
+Trim Trailing Whitespace.................................................Passed
+Fix End of Files.........................................................Passed
+Check Yaml...........................................(no files to check)Skipped
+Check JSON...........................................(no files to check)Skipped
+Check for added large files..............................................Passed
+Check Toml...........................................(no files to check)Skipped
+Check docstring is first.................................................Passed
+Check for case conflicts.................................................Passed
+Check for merge conflicts................................................Passed
+Debug Statements (Python)................................................Passed
+flake8...................................................................Passed
+black....................................................................Passed
+
+```
 
 ### `analyzer.py`
 
-This program searches through tweets for up to the past 7 days for a specified number of results about a particular hashtag, and returns sentiment scores for them. For this example I chose #Salem, a date/time range of 2022-10-16T00:00:00Z to 2022-10-22T00:00:00Z, and a maximum of 15 results. When the program is run it firsts checks to see if the file exists and is readable, and alerts the user if it is or not. In this case it was, so it says "The file exists, and is readable!" before running through the program.
+`analyzer.py` includes two classes, the `APIConnections` and the `HashtagAnalyzer` classes.
 
-The analyzer uses some of the APIs in phase 1 of the project, most notably the hashtags.py for the ability to search by hashtag, and the movie_nlp for analyzing the sentiment of the tweets. 
+#### `APIConnections` class
 
-This code meets the MVP because a user is able to search for hashtags of a city's name (in this case Salem), see a number of recent tweets about Salem, and get two different estimates of how people felt about the city. This project also provides a partial solution to the other user stories; a business owner could search for tweets that have his business name as a hashtag, or an influencer can search for tweets with her handle as a hashtag, or a researcher can collect the sentiment of a number of people on topics tagged with a specific hashtag.
+A user should first instantiate the `APIConnections` class. When called with no arguments, e.g. `APIConnections()`, it attempts to read the required keys from the environment variables. i.e. in `bash` the keys have been exported, e.g. `export 'BEARER_TOKEN'='<your_key_value>'`. Alternatively, the user can provide these as input parameters, e.g.:
 
 ```
-$ Python Phase2/analyzer.py
+Python 3.8.0 | packaged by conda-forge | (default, Nov 22 2019, 19:11:19)
+Type 'copyright', 'credits' or 'license' for more information
+IPython 8.5.0 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: from analyzer import APIConnections
+
+# the user can provide the keys as variables
+In [2]: APIConnections(
+   ...:     twitter_bearer_token='************', # key masked for security
+   ...:     google_application_credentials='gcp.json',
+   ...:     verbose=False,
+   ...:     )
+Out[2]: <analyzer.APIConnections at 0x7f8580af59d0>
+
+# or alternatively, let them be obtained from the environment variables
+In [3]: APIConnections(verbose=False)
+Out[3]: <analyzer.APIConnections at 0x7f85908eac10>
+```
+
+On instantiation, the class sets these keys into dictionaries corresponding to twitter, and google. Once these are set, the `utils.utils.check_empty_str_in_dict` function ensures that the values of the key-value pairs are not empty strings or `None`. Further, each dictionary has a corresponding function to check that the API can be hit. E.g. for the Google NLP keys, `check_google_connection` sends a test message of `Hello World!`.
+
+The idea here is that any connection issues to the APIs will be caught in this initial class. To demonstrate this, we can pass an invalid `twitter bearer token` would raise an exception:
+
+```
+In [2]: APIConnections(twitter_bearer_token='this_is_an_invalid_key', verbose=False)
+
+Exception: (401, '{\n  "title": "Unauthorized",\n  "type": "about:blank",\n  "status": 401,\n  "detail": "Unauthorized"\n}')
+```
+
+#### `HashtagAnalyzer` class
+
+The `HashtagAnalyzer` class is the main class of this work. The user should provide the previously instantiated `APIConnections` as the variable `api_conns`, and the program allows the user to define the `hashtag`, `start_time`, `end_time`, `max_results`, and if retweets should be ignored (`no_retweets`).
+
+
+
+
+
+
+#### Running the main code
+
+One can either work with the previous classes or run `analyzer.py` directly (and this will run with `verbose=True`).
+
+This program searches through tweets for up to the past 7 days for a specified number of results about a particular hashtag, and returns sentiment scores for them. For this example I chose #Salem, a date/time range of 2022-10-10T00:00:00Z to 2022-10-16T00:00:00Z, and a maximum of 10 results.
+
+The analyzer uses some of the APIs in phase 1 of the project, most notably the hashtags.py for the ability to search by hashtag, and the movie_nlp for analyzing the sentiment of the tweets.
+
+##### Running in `iPython`
+
+```
+Python 3.8.0 | packaged by conda-forge | (default, Nov 22 2019, 19:11:19)
+Type 'copyright', 'credits' or 'license' for more information
+IPython 8.5.0 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: from analyzer import APIConnections, HashtagAnalyzer
+
+In [2]: api_c = APIConnections(verbose=False)
+
+In [3]: hta = HashtagAnalyzer(
+   ...:     api_conns=api_c,
+   ...:     hashtag="#Salem",
+   ...:     start_time="2022-10-15T00:00:00Z",
+   ...:     end_time="2022-10-16T00:00:00Z",
+   ...:     max_result="10",
+   ...:     verbose=False,
+   ...:     no_retweets=True,
+   ...: )
+query parameters: {
+    "end_time": "2022-10-16T00:00:00Z",
+    "max_results": "10",
+    "query": "#Salem",
+    "start_time": "2022-10-15T00:00:00Z"
+}
+
+In [4]: hta.analyze_tweets()
+Out[4]:
+  edit_history_tweet_ids                   id                                               text sentiment_score sentiment_magnitude
+0  [1581433510912724993]  1581433510912724993  Available Now: Episode 0, Salem - Ballet Des M...             0.3                 1.1
+1  [1581433060943286272]  1581433060943286272  I would be in #Salem while the town is trendin...             0.0                 0.0
+2  [1581432273827557377]  1581432273827557377  Road bikes to Salem, got art. Road home in the...             0.3                 0.9
+3  [1581431667574525954]  1581431667574525954  Anyone need grave yard dirt ? #Salem #salemma ...            -0.1                 0.5
+4  [1581429703722008576]  1581429703722008576  I do miss living in #Salem during October.  \n...             0.0                 0.7
+5  [1581425544784027648]  1581425544784027648  #NuevaFotoDePerfil #witch #Halloween #bruja #s...             0.0                 0.0
+
+In [5]: hta.calculate_total_sentiment()
+Out[5]: (0.0, 2.299999952316284)
+```
+
+and you can go back and check what the hashtag was, for example:
+
+```
+In [6]: hta.hashtag
+Out[6]: '#Salem'
+```
+
+#### Running `analyzerp.py` directly
+
+the output for the code run through `python analyzer.py` is the following:
+
+```
 The intrepid-flight-365523-a3a81b2e13fe.json exists, and is readable! 
 
 The (masked) API keys: 
@@ -183,5 +305,6 @@ you're not a 100% match. You might be underestimating your value. Click the link
 
 ```
 
+#### User Story MVP
 
----
+This code meets the MVP because a user is able to search for hashtags of a city's name (in this case Salem), see a number of recent tweets about Salem, and get two different estimates of how people felt about the city. This project also provides a partial solution to the other user stories; a business owner could search for tweets that have his business name as a hashtag, or an influencer can search for tweets with her handle as a hashtag, or a researcher can collect the sentiment of a number of people on topics tagged with a specific hashtag.
