@@ -1,6 +1,6 @@
 ## Phase 2 Documentation
 
-### `analyzer_nlp.py`
+### `analyzer.py`
 
 This program searches through tweets for up to the past 7 days for a specified number of results about a particular hashtag, and returns sentiment scores for them. For this example I chose #Salem, a date/time range of 2022-10-16T00:00:00Z to 2022-10-22T00:00:00Z, and a maximum of 15 results. When the program is run it firsts checks to see if the file exists and is readable, and alerts the user if it is or not. In this case it was, so it says "The file exists, and is readable!" before running through the program.
 
