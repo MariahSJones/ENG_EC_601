@@ -108,16 +108,19 @@ query parameters: {
 
 In [4]: hta.analyze_tweets()
 Out[4]:
-  edit_history_tweet_ids                   id                                               text sentiment_score sentiment_magnitude
-0  [1581433510912724993]  1581433510912724993  Available Now: Episode 0, Salem - Ballet Des M...             0.3                 1.1
-1  [1581433060943286272]  1581433060943286272  I would be in #Salem while the town is trendin...             0.0                 0.0
-2  [1581432273827557377]  1581432273827557377  Road bikes to Salem, got art. Road home in the...             0.3                 0.9
-3  [1581431667574525954]  1581431667574525954  Anyone need grave yard dirt ? #Salem #salemma ...            -0.1                 0.5
-4  [1581429703722008576]  1581429703722008576  I do miss living in #Salem during October.  \n...             0.0                 0.7
-5  [1581425544784027648]  1581425544784027648  #NuevaFotoDePerfil #witch #Halloween #bruja #s...             0.0                 0.0
+  edit_history_tweet_ids                   id  ... sentiment_score sentiment_magnitude
+0  [1583608120601104385]  1583608120601104385  ...             0.2                 0.2
+1  [1583607250324582402]  1583607250324582402  ...             0.5                 2.2
+2  [1583605005151481857]  1583605005151481857  ...             0.6                 3.1
+3  [1583602581594439681]  1583602581594439681  ...             0.4                 0.4
+4  [1583596744272621569]  1583596744272621569  ...            -0.1                 0.1
+5  [1583595271044313089]  1583595271044313089  ...             0.0                 1.2
+6  [1583594102733803520]  1583594102733803520  ...             0.1                 0.5
+7  [1583590175648940033]  1583590175648940033  ...             0.4                 0.9
+
 
 In [5]: hta.calculate_total_sentiment()
-Out[5]: (0.0, 2.299999952316284)
+Out[5]: (0.4000000059604645, 7.099999904632568)
 ```
 
 and you can go back and check what the hashtag was, for example:
@@ -353,4 +356,18 @@ finishing up Salem! I really dig this model. That dress is super cool! Let me kn
 
 #### User Story MVP
 
-This code meets the MVP because a user is able to search for hashtags of a city's name (in this case Salem), see a number of recent tweets about Salem, and get two different estimates of how people felt about the city. This project also provides a partial solution to the other user stories; a business owner could search for tweets that have his business name as a hashtag, or an influencer can search for tweets with her handle as a hashtag, or a researcher can collect the sentiment of a number of people on topics tagged with a specific hashtag.
+This code meets the MVP because a user is able to search for hashtags of a city's name (in this case Salem), see a number of recent tweets about Salem, and get two different estimates of how people felt about the city. This project also provides a partial solution to the other user stories; a business owner could search for tweets that have his business name as a hashtag, or an influencer can search for tweets with her handle as a hashtag, or a researcher can collect the sentiment of a number of people on topics tagged with a specific hashtag. However this program has a lot of room for improvement. One problem with hashtags is that the same hashtag can be used for multiple thinsas demonstrated by the following two tweets:
+
+```
+            "id": "1583607250324582402",
+            "text": "Allied Universal is committed more than ever to safety. If you have a passion for being there for 
+others, we want to hire you in #Salem, OR. Apply now! https://t.co/LXuYHMEZsr #Safety"
+        },
+        
+                    "id": "1583590175648940033",
+            "text": "Massachusetts, too many pics to choose from, you were a dream. #boston #capecod #salem #plymoth @ 
+Massachusetts https://t.co/W6phU8nygA"
+        },
+    
+```
+Both of the tweets use #Salem, but one is about Salem, MA while the other is about Salem, MA. One improvement that could fix this problem would be requiring the user to search for multiple tags at the same time in order to improve the relevancy of the results.
