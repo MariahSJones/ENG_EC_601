@@ -156,8 +156,8 @@ self.tweets_data:
  {
     "data": [
         {
-            "edit_history_tweet_ids": [ 
-                "1583608170685300736"   
+            "edit_history_tweet_ids": [
+                "1583608170685300736"
             ],
             "id": "1583608170685300736",
             "text": "RT @trsights: Hocus Pocus \ud83c\udf41\ud83c\udf42\ud83c\udf83 #trickortreat #ghoul #halloweennights #fallseason #autumnseason #salem #pumpkinspice #autumnpeople #fallpeopl\u2026"
@@ -174,39 +174,36 @@ self.tweets_data:
                 "1583607250324582402"
             ],
             "id": "1583607250324582402",
-            "text": "Allied Universal is committed more than ever to safety. If you have a passion for being there for others, we want to hire you in #Salem, OR. Apply now! https://t.co/LXuYHMEZsr #Safety"
+            "text": "Allied Universal is committed more than ever to safety. If you have a passion for being there for 
+others, we want to hire you in #Salem, OR. Apply now! https://t.co/LXuYHMEZsr #Safety"
         },
         {
             "edit_history_tweet_ids": [
                 "1583605516441649152"
             ],
             "id": "1583605516441649152",
-            "text": "RT @Cosmic_Trance: Finally got around to finishing up Salem! I really dig this model. That dress 
-is super cool! Let me know what ya'll thin\u2026"
+            "text": "RT @Cosmic_Trance: Finally got around to finishing up Salem! I really dig this model. That dress is super cool! Let me know what ya'll thin\u2026"
         },
         {
             "edit_history_tweet_ids": [
                 "1583605051091996673"
             ],
             "id": "1583605051091996673",
-            "text": "RT @Cosmic_Trance: Finally got around to finishing up Salem! I really dig this model. That dress 
-is super cool! Let me know what ya'll thin\u2026"
+            "text": "RT @Cosmic_Trance: Finally got around to finishing up Salem! I really dig this model. That dress is super cool! Let me know what ya'll thin\u2026"
         },
         {
             "edit_history_tweet_ids": [
                 "1583605029633552384"
             ],
             "id": "1583605029633552384",
-            "text": "RT @Cosmic_Trance: Finally got around to finishing up Salem! I really dig this model. That dress 
-is super cool! Let me know what ya'll thin\u2026"
+            "text": "RT @Cosmic_Trance: Finally got around to finishing up Salem! I really dig this model. That dress is super cool! Let me know what ya'll thin\u2026"
         },
         {
             "edit_history_tweet_ids": [
                 "1583605005151481857"
             ],
             "id": "1583605005151481857",
-            "text": "Finally got around to finishing up Salem! I really dig this model. That dress is super cool! Let 
-me know what ya'll think!\n\n#RWBY #Salem #NSFW #Blender3d https://t.co/iGTAyOl5OF"
+            "text": "Finally got around to finishing up Salem! I really dig this model. That dress is super cool! Let me know what ya'll think!\n\n#RWBY #Salem #NSFW #Blender3d https://t.co/iGTAyOl5OF"
         },
         {
             "edit_history_tweet_ids": [
@@ -227,7 +224,7 @@ me know what ya'll think!\n\n#RWBY #Salem #NSFW #Blender3d https://t.co/iGTAyOl5
                 "1583595271044313089"
             ],
             "id": "1583595271044313089",
-            "text": "Nervous to apply for a job like \"Island Sales Representative\" at Rocket? Apply even if you're not a 100% match. You might be underestimating your value. Click the link in our bio for more info. #Sales #Salem, OR" 
+            "text": "Nervous to apply for a job like \"Island Sales Representative\" at Rocket? Apply even if you're not a 100% match. You might be underestimating your value. Click the link in our bio for more info. #Sales #Salem, OR"   
         },
         {
             "edit_history_tweet_ids": [
@@ -255,7 +252,8 @@ me know what ya'll think!\n\n#RWBY #Salem #NSFW #Blender3d https://t.co/iGTAyOl5
                 "1583590175648940033"
             ],
             "id": "1583590175648940033",
-            "text": "Massachusetts, too many pics to choose from, you were a dream. #boston #capecod #salem #plymoth @ Massachusetts https://t.co/W6phU8nygA"
+            "text": "Massachusetts, too many pics to choose from, you were a dream. #boston #capecod #salem #plymoth @ 
+Massachusetts https://t.co/W6phU8nygA"
         },
         {
             "edit_history_tweet_ids": [
@@ -271,7 +269,7 @@ me know what ya'll think!\n\n#RWBY #Salem #NSFW #Blender3d https://t.co/iGTAyOl5
         "oldest_id": "1583584646532861952",
         "result_count": 15
     }
-}
+} 
  -------
 
 
@@ -337,11 +335,11 @@ self.tweets_df:
  all the tweets as a single document:
 
 
- #Salem https://t.co/Csjd4gKShW.Allied Universal is committed more than ever to safety. If you have a passion for being there for others, we want to hire you in #Salem, OR. Apply now! https://t.co/LXuYHMEZsr #Safety.Finally got around to finishing up Salem! I really dig this model. That dress is super cool! Let me know what ya'll think!
+ #Salem https://t.co/Csjd4gKShW.Allied Universal is committed more than ever to safety. If you have a passion for being there for others, we want to hire you in #Salem, OR. Apply now! https://t.co/LXuYHMEZsr #Safety.Finally got around to 
+finishing up Salem! I really dig this model. That dress is super cool! Let me know what ya'll think!
 
 #RWBY #Salem #NSFW #Blender3d https://t.co/iGTAyOl5OF.This job might be a great fit for you: Driver Helper - https://t.co/7Yq7SbjuLt #Transportation #Salem, OR.we out
-#Salem https://t.co/G8JhEM33RF.Nervous to apply for a job like "Island Sales Representative" at Rocket? Apply even if 
-you're not a 100% match. You might be underestimating your value. Click the link in our bio for more info. #Sales #Salem, OR.#Salem is still spooky in the daytime! Our 60 minute mid-day #ghosttour runs daily at 2:30pm.  https://t.co/JDbep3KvbW.Massachusetts, too many pics to choose from, you were a dream. #boston #capecod #salem #plymoth @ Massachusetts https://t.co/W6phU8nygA.
+#Salem https://t.co/G8JhEM33RF.Nervous to apply for a job like "Island Sales Representative" at Rocket? Apply even if you're not a 100% match. You might be underestimating your value. Click the link in our bio for more info. #Sales #Salem, OR.#Salem is still spooky in the daytime! Our 60 minute mid-day #ghosttour runs daily at 2:30pm.  https://t.co/JDbep3KvbW.Massachusetts, too many pics to choose from, you were a dream. #boston #capecod #salem #plymoth @ Massachusetts https://t.co/W6phU8nygA.
 
 
 
