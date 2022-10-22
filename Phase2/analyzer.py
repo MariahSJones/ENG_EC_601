@@ -126,7 +126,7 @@ class HashtagAnalyzer:
     def __init__(
         self,
         api_conns=None,
-        hashtag="#halloween",
+        hashtag="#Salem",
         start_time="2022-10-16T00:00:00Z",
         end_time="2022-10-22T00:00:00Z",
         max_result="15",
@@ -318,7 +318,7 @@ if __name__ == "__main__":
         hashtag="#Salem",
         start_time="2022-10-16T00:00:00Z",
         end_time="2022-10-22T00:00:00Z",
-        max_result="10",
+        max_result="15",
         verbose=True,
         no_retweets=True,
     )
