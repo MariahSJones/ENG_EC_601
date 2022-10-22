@@ -1,3 +1,14 @@
+## Phase 2 Documentation
+
+### `analyzer_nlp.py`
+
+This program searches through tweets for up to the past 7 days for a specified number of results about a particular hashtag, and returns sentiment scores for them. For this example I chose #Salem, a date/time range of 2022-10-16T00:00:00Z to 2022-10-22T00:00:00Z, and a maximum of 15 results. When the program is run it firsts checks to see if the file exists and is readable, and alerts the user if it is or not. In this case it was, so it says "The file exists, and is readable!" before running through the program.
+
+The analyzer uses some of the APIs in phase 1 of the project, most notably the hashtags.py for the ability to search by hashtag, and the movie_nlp for analyzing the sentiment of the tweets. 
+
+This code meets the MVP because a user is able to search for hashtags of a city's name (in this case Salem), see a number of recent tweets about Salem, and get two different estimates of how people felt about the city. This project also provides a partial solution to the other user stories; a business owner could search for tweets that have his business name as a hashtag, or an influencer can search for tweets with her handle as a hashtag, or a researcher can collect the sentiment of a number of people on topics tagged with a specific hashtag.
+
+```
 $ Python Phase2/analyzer.py
 The intrepid-flight-365523-a3a81b2e13fe.json exists, and is readable! 
 
@@ -169,3 +180,8 @@ you're not a 100% match. You might be underestimating your value. Click the link
                 0.4000000059604645, 5.900000095367432
 
 (0.4000000059604645, 5.900000095367432)
+
+```
+
+
+---
