@@ -132,6 +132,7 @@ Out[6]: '#Salem'
 the output for the code run through `python analyzer.py` is the following:
 
 ```
+$ Python Phase2/analyzer.py
 The intrepid-flight-365523-a3a81b2e13fe.json exists, and is readable! 
 
 The (masked) API keys: 
@@ -146,7 +147,7 @@ The (masked) API keys:
 
 query parameters: {
     "end_time": "2022-10-22T00:00:00Z",
-    "max_results": "10",
+    "max_results": "15",
     "query": "#Salem",
     "start_time": "2022-10-16T00:00:00Z"
 }
@@ -155,8 +156,8 @@ self.tweets_data:
  {
     "data": [
         {
-            "edit_history_tweet_ids": [
-                "1583608170685300736"
+            "edit_history_tweet_ids": [ 
+                "1583608170685300736"   
             ],
             "id": "1583608170685300736",
             "text": "RT @trsights: Hocus Pocus \ud83c\udf41\ud83c\udf42\ud83c\udf83 #trickortreat #ghoul #halloweennights #fallseason #autumnseason #salem #pumpkinspice #autumnpeople #fallpeopl\u2026"
@@ -227,19 +228,54 @@ me know what ya'll think!\n\n#RWBY #Salem #NSFW #Blender3d https://t.co/iGTAyOl5
             ],
             "id": "1583595271044313089",
             "text": "Nervous to apply for a job like \"Island Sales Representative\" at Rocket? Apply even if you're not a 100% match. You might be underestimating your value. Click the link in our bio for more info. #Sales #Salem, OR" 
+        },
+        {
+            "edit_history_tweet_ids": [
+                "1583594102733803520"
+            ],
+            "id": "1583594102733803520",
+            "text": "#Salem is still spooky in the daytime! Our 60 minute mid-day #ghosttour runs daily at 2:30pm.  https://t.co/JDbep3KvbW"
+        },
+        {
+            "edit_history_tweet_ids": [
+                "1583594063827468288"
+            ],
+            "id": "1583594063827468288",
+            "text": "RT @DLGenealogist: If you missed my lecture today on \"Verifying Descent from Salem's Accused Witches\" you can view it online for #FREE and\u2026"
+        },
+        {
+            "edit_history_tweet_ids": [
+                "1583592366673272832"
+            ],
+            "id": "1583592366673272832",
+            "text": "RT @NyxxZeiss: Salem joined the group!\n#RWBY #Salem #CinderFall #Koikatsu #KoikatuParty\nwould you like to help me? https://t.co/xWzgnbOcSW\u2026"
+        },
+        {
+            "edit_history_tweet_ids": [
+                "1583590175648940033"
+            ],
+            "id": "1583590175648940033",
+            "text": "Massachusetts, too many pics to choose from, you were a dream. #boston #capecod #salem #plymoth @ Massachusetts https://t.co/W6phU8nygA"
+        },
+        {
+            "edit_history_tweet_ids": [
+                "1583584646532861952"
+            ],
+            "id": "1583584646532861952",
+            "text": "RT @cottage_green: Massachusetts Historic House Plaque Circa Date Signs by https://t.co/qOU0YmaF2O #CapeAnn #Salem #Boston #CircaPlaque #Gl\u2026"
         }
     ],
     "meta": {
         "newest_id": "1583608170685300736",
-        "next_token": "b26v89c19zqg8o3fpzekpi2bdwmcth59dmevo5rm63ed9",
-        "oldest_id": "1583595271044313089",
-        "result_count": 10
+        "next_token": "b26v89c19zqg8o3fpzekpi20jzh32h6tudqp8004doiv1",
+        "oldest_id": "1583584646532861952",
+        "result_count": 15
     }
 }
  -------
 
 
-self.tweets_df: 
+self.tweets_df:
 
    edit_history_tweet_ids                   id                                               text
 0  [1583608120601104385]  1583608120601104385                     #Salem https://t.co/Csjd4gKShW
@@ -248,6 +284,8 @@ self.tweets_df:
 3  [1583602581594439681]  1583602581594439681  This job might be a great fit for you: Driver ...
 4  [1583596744272621569]  1583596744272621569            we out \n#Salem https://t.co/G8JhEM33RF
 5  [1583595271044313089]  1583595271044313089  Nervous to apply for a job like "Island Sales ...
+6  [1583594102733803520]  1583594102733803520  #Salem is still spooky in the daytime! Our 60 ...
+7  [1583590175648940033]  1583590175648940033  Massachusetts, too many pics to choose from, y...
  -------
 
 
@@ -275,6 +313,14 @@ self.tweets_df:
                 Sentiment for the text 5:
                 0.0, 1.2000000476837158
 
+
+                Sentiment for the text 6:
+                0.10000000149011612, 0.5
+
+
+                Sentiment for the text 7:
+                0.4000000059604645, 0.8999999761581421
+
   edit_history_tweet_ids                   id  ... sentiment_score sentiment_magnitude
 0  [1583608120601104385]  1583608120601104385  ...             0.2                 0.2
 1  [1583607250324582402]  1583607250324582402  ...             0.5                 2.2
@@ -282,26 +328,28 @@ self.tweets_df:
 3  [1583602581594439681]  1583602581594439681  ...             0.4                 0.4
 4  [1583596744272621569]  1583596744272621569  ...            -0.1                 0.1
 5  [1583595271044313089]  1583595271044313089  ...             0.0                 1.2
+6  [1583594102733803520]  1583594102733803520  ...             0.1                 0.5
+7  [1583590175648940033]  1583590175648940033  ...             0.4                 0.9
 
-[6 rows x 5 columns]
+[8 rows x 5 columns]
 
 
  all the tweets as a single document:
 
 
- #Salem https://t.co/Csjd4gKShW.Allied Universal is committed more than ever to safety. If you have a passion for being there for others, we want to hire you in #Salem, OR. Apply now! https://t.co/LXuYHMEZsr #Safety.Finally got around think!
+ #Salem https://t.co/Csjd4gKShW.Allied Universal is committed more than ever to safety. If you have a passion for being there for others, we want to hire you in #Salem, OR. Apply now! https://t.co/LXuYHMEZsr #Safety.Finally got around to finishing up Salem! I really dig this model. That dress is super cool! Let me know what ya'll think!
 
 #RWBY #Salem #NSFW #Blender3d https://t.co/iGTAyOl5OF.This job might be a great fit for you: Driver Helper - https://t.co/7Yq7SbjuLt #Transportation #Salem, OR.we out
 #Salem https://t.co/G8JhEM33RF.Nervous to apply for a job like "Island Sales Representative" at Rocket? Apply even if 
-you're not a 100% match. You might be underestimating your value. Click the link in our bio for more info. #Sales #Salem, OR.
+you're not a 100% match. You might be underestimating your value. Click the link in our bio for more info. #Sales #Salem, OR.#Salem is still spooky in the daytime! Our 60 minute mid-day #ghosttour runs daily at 2:30pm.  https://t.co/JDbep3KvbW.Massachusetts, too many pics to choose from, you were a dream. #boston #capecod #salem #plymoth @ Massachusetts https://t.co/W6phU8nygA.
 
 
 
 
                 Sentiment for the text 0:
-                0.4000000059604645, 5.900000095367432
+                0.4000000059604645, 7.099999904632568
 
-(0.4000000059604645, 5.900000095367432)
+(0.4000000059604645, 7.099999904632568)
 
 ```
 
