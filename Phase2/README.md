@@ -1,178 +1,7 @@
-### `analyzer_nlp.py`
+$ Python Phase2/analyzer.py
+The intrepid-flight-365523-a3a81b2e13fe.json exists, and is readable! 
 
-This program searches through tweets for up to the past 7 days for a specified number of results about a particular hashtag, and returns sentiment scores for them. For this example I chose #Salem, a date/time range of 2022-10-10T00:00:00Z to 2022-10-16T00:00:00Z, and a maximum of 10 results. When the program is run it firsts checks to see if the file exists and is readable, and alerts the user if it is or not. In this case it was, so it says "The file exists, and is readable!" before running through the program.
-
-The analyzer uses some of the APIs in phase 1 of the project, most notably the hashtags.py for the ability to search by hashtag, and the movie_nlp for analyzing the sentiment of the tweets.
-
-```
-$ python Phase2/analyzer.py
-The file exists, and is readable!
-
-query parameters: {
-    "end_time": "2022-10-16T00:00:00Z",
-    "max_results": "10",
-    "query": "#Salem",
-    "start_time": "2022-10-15T00:00:00Z"
-}
-self.tweets_data:
-
- {
-    "data": [
-        {
-            "edit_history_tweet_ids": [
-                "1581434627595505664"
-            ],
-            "id": "1581434627595505664",
-            "text": "RT @ThouPodcast: Available Now: Episode 0, Salem - Ballet Des Moines, an interview with artistic director Tom Mattingly and creative direct\u2026"
-        },
-        {
-            "edit_history_tweet_ids": [
-                "1581433510912724993"
-            ],
-            "id": "1581433510912724993",
-            "text": "Available Now: Episode 0, Salem - Ballet Des Moines, an interview with artistic director Tom Mattingly and creative director Jami Milne.\nListen at https://t.co/UAsGHJtzoX  or with your favorite podcast app.\n#salem #desmoines #salemwitchtrials #ballet https://t.co/ksckdL35Rk"
-        },
-        {
-            "edit_history_tweet_ids": [
-                "1581433060943286272"
-            ],
-            "id": "1581433060943286272",
-            "text": "I would be in #Salem while the town is trending on Twitter right now \ud83d\ude02\ud83e\udee0"
-        },
-        {
-            "edit_history_tweet_ids": [
-                "1581432273827557377"
-            ],
-            "id": "1581432273827557377",
-            "text": "Road bikes to Salem, got art. Road home in the dark!\n#Salem #hauntedhappenings #halloween #happyhalloween #art https://t.co/qd6SEeDMlt"
-        },
-        {
-            "edit_history_tweet_ids": [
-                "1581431914245738496"
-            ],
-            "id": "1581431914245738496",
-            "text": "RT @baelfleur: F\u0338i\u0335n\u0337i\u0336s\u0334h\u0336 \u0336t\u0337h\u0334e\u0335m\u0336 \u0338o\u0334r\u0335 \u0336y\u0338o\u0336u\u0334'\u0334r\u0335e\u0338 \u0334n\u0338e\u0334x\u0334t\u0337\n\n#RWBY  #RWBYfanart #Salem #RWBYSalem https://t.co/OW2dJDMDlc"
-        },
-        {
-            "edit_history_tweet_ids": [
-                "1581431667574525954"
-            ],
-            "id": "1581431667574525954",
-            "text": "Anyone need grave yard dirt ? #Salem #salemma #cemetary #graveyard
-#spells #spellwork #witch #malewitch https://t.co/Xfj5UA5O8Y"
-        },
-        {
-            "edit_history_tweet_ids": [
-                "1581429703722008576"
-            ],
-            "id": "1581429703722008576",
-            "text": "I do miss living in #Salem during October.  \n\nAll the tourist. All the people watching."
-        },
-        {
-            "edit_history_tweet_ids": [
-                "1581427125147832320"
-            ],
-            "id": "1581427125147832320",
-            "text": "RT @vile_individual: day 10- age gap! #kinktober #kinktober2022 #agegap #shota #underage #priest #OC #salem https://t.co/dBrojqWqut"
-        },
-        {
-            "edit_history_tweet_ids": [
-                "1581425544784027648"
-            ],
-            "id": "1581425544784027648",
-            "text": "#NuevaFotoDePerfil #witch #Halloween #bruja #salem #trans #ilovehalloween https://t.co/af1VEAJNXA"
-        },
-        {
-            "edit_history_tweet_ids": [
-                "1581425292765036545"
-            ],
-            "id": "1581425292765036545",
-            "text": "RT @baelfleur: F\u0338i\u0335n\u0337i\u0336s\u0334h\u0336 \u0336t\u0337h\u0334e\u0335m\u0336 \u0338o\u0334r\u0335 \u0336y\u0338o\u0336u\u0334'\u0334r\u0335e\u0338 \u0334n\u0338e\u0334x\u0334t\u0337\n\n#RWBY  #RWBYfanart #Salem #RWBYSalem https://t.co/OW2dJDMDlc"
-        }
-    ],
-    "meta": {
-        "newest_id": "1581434627595505664",
-        "next_token": "b26v89c19zqg8o3fpzejv4nlvh1eofohfcfihzfrz8q65",
-        "oldest_id": "1581425292765036545",
-        "result_count": 10
-    }
-}
- -------
-
-
-self.tweets_df:
-
-   edit_history_tweet_ids  ...                                               text
-0  [1581433510912724993]  ...  Available Now: Episode 0, Salem - Ballet Des M...
-1  [1581433060943286272]  ...  I would be in #Salem while the town is trendin...
-2  [1581432273827557377]  ...  Road bikes to Salem, got art. Road home in the...
-3  [1581431667574525954]  ...  Anyone need grave yard dirt ? #Salem #salemma ...
-4  [1581429703722008576]  ...  I do miss living in #Salem during October.  \n...
-5  [1581425544784027648]  ...  #NuevaFotoDePerfil #witch #Halloween #bruja #s...
-
-[6 rows x 3 columns]
- -------
-
-
-
-                Sentiment for the text 0:
-                0.30000001192092896, 1.100000023841858
-
-
-                Sentiment for the text 1:
-                0.0, 0.0
-
-
-                Sentiment for the text 2:
-                0.30000001192092896, 0.8999999761581421
-
-
-                Sentiment for the text 3:
-                -0.10000000149011612, 0.5
-
-
-                Sentiment for the text 4:
-                0.0, 0.699999988079071
-
-
-                Sentiment for the text 5:
-                0.0, 0.0
-
-  edit_history_tweet_ids                   id  ... sentiment_score sentiment_magnitude
-0  [1581433510912724993]  1581433510912724993  ...             0.3                 1.1
-1  [1581433060943286272]  1581433060943286272  ...             0.0                 0.0
-2  [1581432273827557377]  1581432273827557377  ...             0.3                 0.9
-3  [1581431667574525954]  1581431667574525954  ...            -0.1                 0.5
-4  [1581429703722008576]  1581429703722008576  ...             0.0                 0.7
-5  [1581425544784027648]  1581425544784027648  ...             0.0                 0.0
-
-[6 rows x 5 columns]
-
-
- all the tweets as a single document:
-
-
- Available Now: Episode 0, Salem - Ballet Des Moines, an interview with artistic director Tom Mattingly and creative director Jami Milne.
-Listen at https://t.co/UAsGHJtzoX  or with your favorite podcast app.
-#salem #desmoines #salemwitchtrials #ballet https://t.co/ksckdL35Rk.I would be in #Salem while the town is trending on Twitter right now 😂🫠.Road bikes to Salem, got art. Road
- home in the dark!
-#Salem #hauntedhappenings #halloween #happyhalloween #art https://t.co/qd6SEeDMlt.Anyone need grave yard dirt ? #Salem #salemma #cemetary #graveyard #spells #spellwork #witch #malewitch https://t.co/Xfj5UA5O8Y.I do miss living in #Salem during October.
-
-All the tourist. All the people watching..#NuevaFotoDePerfil #witch #Halloween #bruja #salem #trans #ilovehalloween https://t.co/af1VEAJNXA.
-
-
-
-
-                Sentiment for the text 0:
-                0.0, 2.299999952316284
-
-(0.0, 2.299999952316284)
-(base)
-Francisco@DESKTOP-T0GSKI1 MINGW64 ~/EC601
-$ python Phase2/analyzer.py
-The file exists, and is readable!
-
-The (masked) API keys:
+The (masked) API keys: 
 
 {
     "bearer_token": "****************************************************************************************************************"
@@ -183,140 +12,143 @@ The (masked) API keys:
 
 
 query parameters: {
-    "end_time": "2022-10-16T00:00:00Z",
+    "end_time": "2022-10-22T00:00:00Z",
     "max_results": "10",
     "query": "#Salem",
-    "start_time": "2022-10-15T00:00:00Z"
+    "start_time": "2022-10-16T00:00:00Z"
 }
-self.tweets_data:
+self.tweets_data: 
 
  {
     "data": [
         {
             "edit_history_tweet_ids": [
-                "1581434627595505664"
+                "1583608170685300736"
             ],
-            "id": "1581434627595505664",
-            "text": "RT @ThouPodcast: Available Now: Episode 0, Salem - Ballet Des Moines, an interview with artistic director Tom Mattingly and creative direct\u2026"
+            "id": "1583608170685300736",
+            "text": "RT @trsights: Hocus Pocus \ud83c\udf41\ud83c\udf42\ud83c\udf83 #trickortreat #ghoul #halloweennights #fallseason #autumnseason #salem #pumpkinspice #autumnpeople #fallpeopl\u2026"
         },
         {
             "edit_history_tweet_ids": [
-                "1581433510912724993"
+                "1583608120601104385"
             ],
-            "id": "1581433510912724993",
-            "text": "Available Now: Episode 0, Salem - Ballet Des Moines, an interview with artistic director Tom Mattingly and creative director Jami Milne.\nListen at https://t.co/UAsGHJtzoX  or with your favorite podcast app.\n#salem #desmoines #salemwitchtrials #ballet https://t.co/ksckdL35Rk"
+            "id": "1583608120601104385",
+            "text": "#Salem https://t.co/Csjd4gKShW"
         },
         {
             "edit_history_tweet_ids": [
-                "1581433060943286272"
+                "1583607250324582402"
             ],
-            "id": "1581433060943286272",
-            "text": "I would be in #Salem while the town is trending on Twitter right now \ud83d\ude02\ud83e\udee0"
+            "id": "1583607250324582402",
+            "text": "Allied Universal is committed more than ever to safety. If you have a passion for being there for others, we want to hire you in #Salem, OR. Apply now! https://t.co/LXuYHMEZsr #Safety"
         },
         {
             "edit_history_tweet_ids": [
-                "1581432273827557377"
+                "1583605516441649152"
             ],
-            "id": "1581432273827557377",
-            "text": "Road bikes to Salem, got art. Road home in the dark!\n#Salem #hauntedhappenings #halloween #happyhalloween #art https://t.co/qd6SEeDMlt"
+            "id": "1583605516441649152",
+            "text": "RT @Cosmic_Trance: Finally got around to finishing up Salem! I really dig this model. That dress 
+is super cool! Let me know what ya'll thin\u2026"
         },
         {
             "edit_history_tweet_ids": [
-                "1581431914245738496"
+                "1583605051091996673"
             ],
-            "id": "1581431914245738496",
-            "text": "RT @baelfleur: F\u0338i\u0335n\u0337i\u0336s\u0334h\u0336 \u0336t\u0337h\u0334e\u0335m\u0336 \u0338o\u0334r\u0335 \u0336y\u0338o\u0336u\u0334'\u0334r\u0335e\u0338 \u0334n\u0338e\u0334x\u0334t\u0337\n\n#RWBY  #RWBYfanart #Salem #RWBYSalem https://t.co/OW2dJDMDlc"
+            "id": "1583605051091996673",
+            "text": "RT @Cosmic_Trance: Finally got around to finishing up Salem! I really dig this model. That dress 
+is super cool! Let me know what ya'll thin\u2026"
         },
         {
             "edit_history_tweet_ids": [
-                "1581431667574525954"
+                "1583605029633552384"
             ],
-            "id": "1581431667574525954",
-            "text": "Anyone need grave yard dirt ? #Salem #salemma #cemetary #graveyard #spells #spellwork #witch #malewitch
-https://t.co/Xfj5UA5O8Y"
+            "id": "1583605029633552384",
+            "text": "RT @Cosmic_Trance: Finally got around to finishing up Salem! I really dig this model. That dress 
+is super cool! Let me know what ya'll thin\u2026"
         },
         {
             "edit_history_tweet_ids": [
-                "1581429703722008576"
+                "1583605005151481857"
             ],
-            "id": "1581429703722008576",
-            "text": "I do miss living in #Salem during October.  \n\nAll the tourist. All the people watching."
+            "id": "1583605005151481857",
+            "text": "Finally got around to finishing up Salem! I really dig this model. That dress is super cool! Let 
+me know what ya'll think!\n\n#RWBY #Salem #NSFW #Blender3d https://t.co/iGTAyOl5OF"
         },
         {
             "edit_history_tweet_ids": [
-                "1581427125147832320"
+                "1583602581594439681"
             ],
-            "id": "1581427125147832320",
-            "text": "RT @vile_individual: day 10- age gap! #kinktober #kinktober2022 #agegap #shota #underage #priest #OC #salem https://t.co/dBrojqWqut"
+            "id": "1583602581594439681",
+            "text": "This job might be a great fit for you: Driver Helper - https://t.co/7Yq7SbjuLt #Transportation #Salem, OR"
         },
         {
             "edit_history_tweet_ids": [
-                "1581425544784027648"
+                "1583596744272621569"
             ],
-            "id": "1581425544784027648",
-            "text": "#NuevaFotoDePerfil #witch #Halloween #bruja #salem #trans #ilovehalloween https://t.co/af1VEAJNXA"
+            "id": "1583596744272621569",
+            "text": "we out \n#Salem https://t.co/G8JhEM33RF"
         },
         {
             "edit_history_tweet_ids": [
-                "1581425292765036545"
+                "1583595271044313089"
             ],
-            "id": "1581425292765036545",
-            "text": "RT @baelfleur: F\u0338i\u0335n\u0337i\u0336s\u0334h\u0336 \u0336t\u0337h\u0334e\u0335m\u0336 \u0338o\u0334r\u0335 \u0336y\u0338o\u0336u\u0334'\u0334r\u0335e\u0338 \u0334n\u0338e\u0334x\u0334t\u0337\n\n#RWBY  #RWBYfanart #Salem #RWBYSalem https://t.co/OW2dJDMDlc"
+            "id": "1583595271044313089",
+            "text": "Nervous to apply for a job like \"Island Sales Representative\" at Rocket? Apply even if you're not a 100% match. You might be underestimating your value. Click the link in our bio for more info. #Sales #Salem, OR" 
         }
     ],
     "meta": {
-        "newest_id": "1581434627595505664",
-        "next_token": "b26v89c19zqg8o3fpzejv4nlvh1eofohfcfihzfrz8q65",
-        "oldest_id": "1581425292765036545",
+        "newest_id": "1583608170685300736",
+        "next_token": "b26v89c19zqg8o3fpzekpi2bdwmcth59dmevo5rm63ed9",
+        "oldest_id": "1583595271044313089",
         "result_count": 10
     }
 }
  -------
 
 
-self.tweets_df:
+self.tweets_df: 
 
    edit_history_tweet_ids                   id                                               text
-0  [1581433510912724993]  1581433510912724993  Available Now: Episode 0, Salem - Ballet Des M...
-1  [1581433060943286272]  1581433060943286272  I would be in #Salem while the town is trendin...
-2  [1581432273827557377]  1581432273827557377  Road bikes to Salem, got art. Road home in the...
-3  [1581431667574525954]  1581431667574525954  Anyone need grave yard dirt ? #Salem #salemma ...
-4  [1581429703722008576]  1581429703722008576  I do miss living in #Salem during October.  \n...
-5  [1581425544784027648]  1581425544784027648  #NuevaFotoDePerfil #witch #Halloween #bruja #s...
+0  [1583608120601104385]  1583608120601104385                     #Salem https://t.co/Csjd4gKShW
+1  [1583607250324582402]  1583607250324582402  Allied Universal is committed more than ever t...
+2  [1583605005151481857]  1583605005151481857  Finally got around to finishing up Salem! I re...
+3  [1583602581594439681]  1583602581594439681  This job might be a great fit for you: Driver ...
+4  [1583596744272621569]  1583596744272621569            we out \n#Salem https://t.co/G8JhEM33RF
+5  [1583595271044313089]  1583595271044313089  Nervous to apply for a job like "Island Sales ...
  -------
 
 
 
                 Sentiment for the text 0:
-                0.30000001192092896, 1.100000023841858
+                0.20000000298023224, 0.20000000298023224
 
 
                 Sentiment for the text 1:
-                0.0, 0.0
+                0.5, 2.200000047683716
 
 
                 Sentiment for the text 2:
-                0.30000001192092896, 0.8999999761581421
+                0.6000000238418579, 3.0999999046325684
 
 
                 Sentiment for the text 3:
-                -0.10000000149011612, 0.5
+                0.4000000059604645, 0.4000000059604645
 
 
                 Sentiment for the text 4:
-                0.0, 0.699999988079071
+                -0.10000000149011612, 0.10000000149011612
 
 
                 Sentiment for the text 5:
-                0.0, 0.0
+                0.0, 1.2000000476837158
 
   edit_history_tweet_ids                   id  ... sentiment_score sentiment_magnitude
-0  [1581433510912724993]  1581433510912724993  ...             0.3                 1.1
-1  [1581433060943286272]  1581433060943286272  ...             0.0                 0.0
-2  [1581432273827557377]  1581432273827557377  ...             0.3                 0.9
-3  [1581431667574525954]  1581431667574525954  ...            -0.1                 0.5
-4  [1581429703722008576]  1581429703722008576  ...             0.0                 0.7
-5  [1581425544784027648]  1581425544784027648  ...             0.0                 0.0
+0  [1583608120601104385]  1583608120601104385  ...             0.2                 0.2
+1  [1583607250324582402]  1583607250324582402  ...             0.5                 2.2
+2  [1583605005151481857]  1583605005151481857  ...             0.6                 3.1
+3  [1583602581594439681]  1583602581594439681  ...             0.4                 0.4
+4  [1583596744272621569]  1583596744272621569  ...            -0.1                 0.1
+5  [1583595271044313089]  1583595271044313089  ...             0.0                 1.2
 
 [6 rows x 5 columns]
 
@@ -324,22 +156,16 @@ self.tweets_df:
  all the tweets as a single document:
 
 
- Available Now: Episode 0, Salem - Ballet Des Moines, an interview with artistic director Tom Mattingly and creative director Jami Milne.
-Listen at https://t.co/UAsGHJtzoX  or with your favorite podcast app.
-#salem #desmoines #salemwitchtrials #ballet https://t.co/ksckdL35Rk.I would be in #Salem while the town is trending on Twitter right now 😂🫠.Road bikes to Salem, got art. Road home in the dark!
-#Salem #hauntedhappenings #halloween #happyhalloween #art https://t.co/qd6SEeDMlt.Anyone need grave yard dirt ? #Salem #salemma #cemetary #graveyard #spells #spellwork #witch #malewitch https://t.co/Xfj5UA5O8Y.I do miss living in #Salem during October.
+ #Salem https://t.co/Csjd4gKShW.Allied Universal is committed more than ever to safety. If you have a passion for being there for others, we want to hire you in #Salem, OR. Apply now! https://t.co/LXuYHMEZsr #Safety.Finally got around think!
 
-All the tourist. All the people watching..#NuevaFotoDePerfil #witch #Halloween #bruja #salem #trans #ilovehalloween https://t.co/af1VEAJNXA.
+#RWBY #Salem #NSFW #Blender3d https://t.co/iGTAyOl5OF.This job might be a great fit for you: Driver Helper - https://t.co/7Yq7SbjuLt #Transportation #Salem, OR.we out
+#Salem https://t.co/G8JhEM33RF.Nervous to apply for a job like "Island Sales Representative" at Rocket? Apply even if 
+you're not a 100% match. You might be underestimating your value. Click the link in our bio for more info. #Sales #Salem, OR.
 
 
 
 
                 Sentiment for the text 0:
-                0.0, 2.299999952316284
+                0.4000000059604645, 5.900000095367432
 
-(0.0, 2.299999952316284)
-
-```
-
-
----
+(0.4000000059604645, 5.900000095367432)
