@@ -356,7 +356,7 @@ finishing up Salem! I really dig this model. That dress is super cool! Let me kn
 
 #### User Story MVP
 
-This code meets the MVP because a user is able to search for hashtags of a city's name (in this case Salem), see a number of recent tweets about Salem, and get two different estimates of how people felt about the city. This project also provides a partial solution to the other user stories; a business owner could search for tweets that have his business name as a hashtag, or an influencer can search for tweets with her handle as a hashtag, or a researcher can collect the sentiment of a number of people on topics tagged with a specific hashtag. However this program has a lot of room for improvement. One problem with hashtags is that the same hashtag can be used for multiple thinsas demonstrated by the following two tweets:
+This code meets the MVP because a user is able to search for hashtags of a city's name (in this case Salem), see a number of recent tweets about it, and get two different estimates of how people felt about it. This project also provides a partial solution to the other user stories; a business owner could search for tweets that have his business name as a hashtag, or an influencer can search for tweets with her handle as a hashtag, or a researcher can collect the sentiment of a number of people on topics tagged with a specific hashtag. However this program has a lot of room for improvement. One problem with hashtags is that the same hashtag can be used for multiple thinsas demonstrated by the following two tweets:
 
 ```
             "id": "1583607250324582402",
@@ -370,4 +370,4 @@ Massachusetts https://t.co/W6phU8nygA"
         },
     
 ```
-Both of the tweets use #Salem, but one is about Salem, MA while the other is about Salem, MA. One improvement that could fix this problem would be requiring the user to search for multiple tags at the same time in order to improve the relevancy of the results.
+Both of the tweets use #Salem, but one is about Salem, MA while the other is about Salem, MA. One improvement that could fix this problem would be requiring the user to search for multiple tags at the same time in order to improve the relevancy of the results. Another thing that cound be implemented to improve the project would be running it throught the bot_or_not.py method (from Phase 1 of the project) to check if it was a bot or not. If the tweet was determined to be made by a bot, then the tweet would not be included in the ones being used for the sentiment analysis.
