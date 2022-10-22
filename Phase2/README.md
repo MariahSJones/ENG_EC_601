@@ -127,7 +127,7 @@ In [6]: hta.hashtag
 Out[6]: '#Salem'
 ```
 
-#### Running `analyzerp.py` directly
+#### Running `analyzer.py` directly
 
 the output for the code run through `python analyzer.py` is the following:
 
