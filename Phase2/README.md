@@ -75,7 +75,7 @@ The `HashtagAnalyzer` class is the main class of this work. The user should prov
 
 One can either work with the previous classes or run `analyzer.py` directly (and this will run with `verbose=True`).
 
-This program searches through tweets for up to the past 7 days for a specified number of results about a particular hashtag, and returns sentiment scores for them. For this example I chose #Salem, a date/time range of 2022-10-10T00:00:00Z to 2022-10-16T00:00:00Z, and a maximum of 10 results.
+This program searches through tweets for up to the past 7 days for a specified number of results about a particular hashtag, and returns sentiment scores for them. For this example I chose #Salem, a date/time range of 2022-10-16T00:00:00Z to 2022-10-22T00:00:00Z, and a maximum of 15 results.
 
 The analyzer uses some of the APIs in phase 1 of the project, most notably the hashtags.py for the ability to search by hashtag, and the movie_nlp for analyzing the sentiment of the tweets.
 
@@ -93,17 +93,17 @@ In [2]: api_c = APIConnections(verbose=False)
 In [3]: hta = HashtagAnalyzer(
    ...:     api_conns=api_c,
    ...:     hashtag="#Salem",
-   ...:     start_time="2022-10-15T00:00:00Z",
-   ...:     end_time="2022-10-16T00:00:00Z",
-   ...:     max_result="10",
+   ...:     start_time="2022-10-16T00:00:00Z",
+   ...:     end_time="2022-10-22T00:00:00Z",
+   ...:     max_result="15",
    ...:     verbose=False,
    ...:     no_retweets=True,
    ...: )
 query parameters: {
-    "end_time": "2022-10-16T00:00:00Z",
-    "max_results": "10",
+    "end_time": "2022-10-22T00:00:00Z",
+    "max_results": "15",
     "query": "#Salem",
-    "start_time": "2022-10-15T00:00:00Z"
+    "start_time": "2022-10-16T00:00:00Z"
 }
 
 In [4]: hta.analyze_tweets()
