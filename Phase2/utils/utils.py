@@ -5,7 +5,8 @@ __all__ = ["check_empty_str_in_dict", "json_check", "masked_dict_vals"]
 
 def check_empty_str_in_dict(input_dictionary):
     """
-    checks each key:value in dictionary for empty strings, raises error if there is one
+    checks each key:value in dictionary for empty strings,
+    raises error if there is one
     """
     for key, value in input_dictionary.items():
         if value in ["", "None"]:
@@ -15,7 +16,8 @@ def check_empty_str_in_dict(input_dictionary):
 
 def json_check(file_name, verbose=False):
     """
-    check if file exists and can be read; raises error if it's not readable, says it exists if it is
+    check if file exists and can be read; raises error
+    if it's not readable, says it exists if it is.
     """
     print_fn = str(file_name).split("\\")[-1]
     if not os.path.isfile(file_name) or not os.access(file_name, os.R_OK):
