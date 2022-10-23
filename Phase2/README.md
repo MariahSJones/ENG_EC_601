@@ -360,24 +360,6 @@ finishing up Salem! I really dig this model. That dress is super cool! Let me kn
 
 ```
 
-#### User Story MVP
-
-This code meets the MVP because a user is able to search for hashtags of a city's name (in this case Salem), see a number of recent tweets about it, and get two different estimates of how people felt about it. When the sentiment and magnitude scores from the tweets are combined you get a single score and magnitude of 0.4000000059604645 and 7.099999904632568 respectively. This means that people generally feel positive about Salem at this point in time, and the tourist looking for a place to visit could feel confident that he'll enjoy visiting. This project also provides a partial solution to the other user stories; a business owner could search for tweets that have his business name as a hashtag, or an influencer can search for tweets with her handle as a hashtag, or a researcher can collect the sentiment of a number of people on topics tagged with a specific hashtag. However this program has a lot of room for improvement. One problem with hashtags is that the same hashtag can be used for multiple thins as demonstrated by the following two tweets:
-
-```
-            "id": "1583607250324582402",
-            "text": "Allied Universal is committed more than ever to safety. If you have a passion for being there for
-others, we want to hire you in #Salem, OR. Apply now! https://t.co/LXuYHMEZsr #Safety"
-        },
-
-                    "id": "1583590175648940033",
-            "text": "Massachusetts, too many pics to choose from, you were a dream. #boston #capecod #salem #plymoth @
-Massachusetts https://t.co/W6phU8nygA"
-        },
-
-```
-Both of the tweets use #Salem, but one is about Salem, OR while the other is about Salem, MA. One improvement that could fix this problem would be requiring the user to search for multiple tags at the same time in order to improve the relevancy of the results. Another thing that cound be implemented to improve the project would be running it throught the bot_or_not.py method (from Phase 1 of the project) to check if it was a bot or not. If the tweet was determined to be made by a bot, then the tweet would not be included in the ones being used for the sentiment analysis.
-
 For this example, from the requested 15 tweets, there are 7 tweets that are not retweets. Individually, these tweets have the following sentiment scores and magnitude:
 
 ```
@@ -395,3 +377,22 @@ For this example, from the requested 15 tweets, there are 7 tweets that are not 
 when combined into a single block of text, the final sentiment score is `0.4`, with a magnitude of `7.1`.
 
 As discussed at https://cloud.google.com/natural-language/docs/basics#interpreting_sentiment_analysis_values, "clearly positive" would be a positive score and high magnitude, "clearly negative" is a negative score, and high magnitude, while "neutral" is a score near zero, with a near-zero magnitude, and "mixed" is a score near zero, with a high magnitude.
+
+
+#### User Story MVP
+
+This code meets the MVP because a user is able to search for hashtags of a city's name (in this case Salem), see a number of recent tweets about it, and get two different estimates of how people felt about it. When the sentiment and magnitude scores from the tweets are combined you get a single score and magnitude of 0.4 and 7.1 respectively. This means that people generally feel positive about Salem at this point in time, and the tourist looking for a place to visit could feel confident that he'll enjoy visiting. This project also provides a partial solution to the other user stories; a business owner could search for tweets that have his business name as a hashtag, or an influencer can search for tweets with her handle as a hashtag, or a researcher can collect the sentiment of a number of people on topics tagged with a specific hashtag. However this program has a lot of room for improvement. One problem with hashtags is that the same hashtag can be used for multiple thins as demonstrated by the following two tweets:
+
+```
+            "id": "1583607250324582402",
+            "text": "Allied Universal is committed more than ever to safety. If you have a passion for being there for
+others, we want to hire you in #Salem, OR. Apply now! https://t.co/LXuYHMEZsr #Safety"
+        },
+
+                    "id": "1583590175648940033",
+            "text": "Massachusetts, too many pics to choose from, you were a dream. #boston #capecod #salem #plymoth @
+Massachusetts https://t.co/W6phU8nygA"
+        },
+
+```
+Both of the tweets use #Salem, but one is about Salem, OR while the other is about Salem, MA. One improvement that could fix this problem would be requiring the user to search for multiple tags at the same time in order to improve the relevancy of the results. Another thing that cound be implemented to improve the project would be running it throught the bot_or_not.py method (from Phase 1 of the project) to check if it was a bot or not. If the tweet was determined to be made by a bot, then the tweet would not be included in the ones being used for the sentiment analysis.
