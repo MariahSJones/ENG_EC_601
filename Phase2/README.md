@@ -3,7 +3,7 @@
 ```
 conda create -n phase2 python==3.8
 conda activate phase2
-pip install -r requirements.txt
+pip install -r ../requirements.txt
 
 # For flake8 & black
 pre-commit install
@@ -105,7 +105,11 @@ query parameters: {
     "query": "#Salem",
     "start_time": "2022-10-16T00:00:00Z"
 }
+```
 
+Tweets can be analyzed individually:
+
+```
 In [4]: hta.analyze_tweets()
 Out[4]:
   edit_history_tweet_ids                   id  ... sentiment_score sentiment_magnitude
@@ -117,8 +121,10 @@ Out[4]:
 5  [1583595271044313089]  1583595271044313089  ...             0.0                 1.2
 6  [1583594102733803520]  1583594102733803520  ...             0.1                 0.5
 7  [1583590175648940033]  1583590175648940033  ...             0.4                 0.9
+```
 
-
+or combined in to one document and analyzed together to get a total sentiment score/magnitude
+```
 In [5]: hta.calculate_total_sentiment()
 Out[5]: (0.4000000059604645, 7.099999904632568)
 ```
@@ -136,9 +142,9 @@ the output for the code run through `python analyzer.py` is the following:
 
 ```
 $ Python Phase2/analyzer.py
-The intrepid-flight-365523-a3a81b2e13fe.json exists, and is readable! 
+The intrepid-flight-365523-a3a81b2e13fe.json exists, and is readable!
 
-The (masked) API keys: 
+The (masked) API keys:
 
 {
     "bearer_token": "****************************************************************************************************************"
@@ -154,7 +160,7 @@ query parameters: {
     "query": "#Salem",
     "start_time": "2022-10-16T00:00:00Z"
 }
-self.tweets_data: 
+self.tweets_data:
 
  {
     "data": [
@@ -177,7 +183,7 @@ self.tweets_data:
                 "1583607250324582402"
             ],
             "id": "1583607250324582402",
-            "text": "Allied Universal is committed more than ever to safety. If you have a passion for being there for 
+            "text": "Allied Universal is committed more than ever to safety. If you have a passion for being there for
 others, we want to hire you in #Salem, OR. Apply now! https://t.co/LXuYHMEZsr #Safety"
         },
         {
@@ -227,7 +233,7 @@ others, we want to hire you in #Salem, OR. Apply now! https://t.co/LXuYHMEZsr #S
                 "1583595271044313089"
             ],
             "id": "1583595271044313089",
-            "text": "Nervous to apply for a job like \"Island Sales Representative\" at Rocket? Apply even if you're not a 100% match. You might be underestimating your value. Click the link in our bio for more info. #Sales #Salem, OR"   
+            "text": "Nervous to apply for a job like \"Island Sales Representative\" at Rocket? Apply even if you're not a 100% match. You might be underestimating your value. Click the link in our bio for more info. #Sales #Salem, OR"
         },
         {
             "edit_history_tweet_ids": [
@@ -255,7 +261,7 @@ others, we want to hire you in #Salem, OR. Apply now! https://t.co/LXuYHMEZsr #S
                 "1583590175648940033"
             ],
             "id": "1583590175648940033",
-            "text": "Massachusetts, too many pics to choose from, you were a dream. #boston #capecod #salem #plymoth @ 
+            "text": "Massachusetts, too many pics to choose from, you were a dream. #boston #capecod #salem #plymoth @
 Massachusetts https://t.co/W6phU8nygA"
         },
         {
@@ -272,7 +278,7 @@ Massachusetts https://t.co/W6phU8nygA"
         "oldest_id": "1583584646532861952",
         "result_count": 15
     }
-} 
+}
  -------
 
 
@@ -338,7 +344,7 @@ self.tweets_df:
  all the tweets as a single document:
 
 
- #Salem https://t.co/Csjd4gKShW.Allied Universal is committed more than ever to safety. If you have a passion for being there for others, we want to hire you in #Salem, OR. Apply now! https://t.co/LXuYHMEZsr #Safety.Finally got around to 
+ #Salem https://t.co/Csjd4gKShW.Allied Universal is committed more than ever to safety. If you have a passion for being there for others, we want to hire you in #Salem, OR. Apply now! https://t.co/LXuYHMEZsr #Safety.Finally got around to
 finishing up Salem! I really dig this model. That dress is super cool! Let me know what ya'll think!
 
 #RWBY #Salem #NSFW #Blender3d https://t.co/iGTAyOl5OF.This job might be a great fit for you: Driver Helper - https://t.co/7Yq7SbjuLt #Transportation #Salem, OR.we out
@@ -356,18 +362,36 @@ finishing up Salem! I really dig this model. That dress is super cool! Let me kn
 
 #### User Story MVP
 
-This code meets the MVP because a user is able to search for hashtags of a city's name (in this case Salem), see a number of recent tweets about it, and get two different estimates of how people felt about it. This project also provides a partial solution to the other user stories; a business owner could search for tweets that have his business name as a hashtag, or an influencer can search for tweets with her handle as a hashtag, or a researcher can collect the sentiment of a number of people on topics tagged with a specific hashtag. However this program has a lot of room for improvement. One problem with hashtags is that the same hashtag can be used for multiple thinsas demonstrated by the following two tweets:
+This code meets the MVP because a user is able to search for hashtags of a city's name (in this case Salem), see a number of recent tweets about it, and get two different estimates of how people felt about it. The sentiment and magnitude scores returned for these tweets (sentiment of 0.4000000059604645 and magnitude of 7.099999904632568) means that people generally feel positive about Salem at this point in time, and the tourist looking for a place to visit could feel confident that he'll enjoy visiting. This project also provides a partial solution to the other user stories; a business owner could search for tweets that have his business name as a hashtag, or an influencer can search for tweets with her handle as a hashtag, or a researcher can collect the sentiment of a number of people on topics tagged with a specific hashtag. However this program has a lot of room for improvement. One problem with hashtags is that the same hashtag can be used for multiple thinsas demonstrated by the following two tweets:
 
 ```
             "id": "1583607250324582402",
-            "text": "Allied Universal is committed more than ever to safety. If you have a passion for being there for 
+            "text": "Allied Universal is committed more than ever to safety. If you have a passion for being there for
 others, we want to hire you in #Salem, OR. Apply now! https://t.co/LXuYHMEZsr #Safety"
         },
-        
+
                     "id": "1583590175648940033",
-            "text": "Massachusetts, too many pics to choose from, you were a dream. #boston #capecod #salem #plymoth @ 
+            "text": "Massachusetts, too many pics to choose from, you were a dream. #boston #capecod #salem #plymoth @
 Massachusetts https://t.co/W6phU8nygA"
         },
-    
+
 ```
 Both of the tweets use #Salem, but one is about Salem, OR while the other is about Salem, MA. One improvement that could fix this problem would be requiring the user to search for multiple tags at the same time in order to improve the relevancy of the results. Another thing that cound be implemented to improve the project would be running it throught the bot_or_not.py method (from Phase 1 of the project) to check if it was a bot or not. If the tweet was determined to be made by a bot, then the tweet would not be included in the ones being used for the sentiment analysis.
+
+For this example, from the requested 15 tweets, there are 7 tweets that are not retweets. Individually, these tweets have the following sentiment scores and magnitude:
+
+```
+  edit_history_tweet_ids                   id  ... sentiment_score sentiment_magnitude
+0  [1583608120601104385]  1583608120601104385  ...             0.2                 0.2
+1  [1583607250324582402]  1583607250324582402  ...             0.5                 2.2
+2  [1583605005151481857]  1583605005151481857  ...             0.6                 3.1
+3  [1583602581594439681]  1583602581594439681  ...             0.4                 0.4
+4  [1583596744272621569]  1583596744272621569  ...            -0.1                 0.1
+5  [1583595271044313089]  1583595271044313089  ...             0.0                 1.2
+6  [1583594102733803520]  1583594102733803520  ...             0.1                 0.5
+7  [1583590175648940033]  1583590175648940033  ...             0.4                 0.9
+```
+
+when combined into a single block of text, the final sentiment score is `0.4`, with a magnitude of `7.1`.
+
+As discussed at https://cloud.google.com/natural-language/docs/basics#interpreting_sentiment_analysis_values, "clearly positive" would be a positive score and high magnitude, "clearly negative" is a negative score, and high magnitude, while "neutral" is a score near zero, with a near-zero magnitude, and "mixed" is a score near zero, with a high magnitude.
